@@ -1,15 +1,12 @@
 ### DockerTab
 
-Docker containers in a Tab
+With DockerTab you will be able to visualize informations about your docker containers through a UI interface 
 
 ![Screenshot.png](Screenshot.png)
 
+### Connection to your Docker
 
-### Connection to your docker
-
-If you are using `boot2docker` you should already have access to your docker.
-
-But if your docker is hosted somewhere else then you need to change the docker configuration in that way:
+By default docker is not able to receive commands from a different host, but if you are using `boot2docker` the configuration is already setted up to listen for outside connection. Otherwise you have to change the configuration adding `-H tcp://0.0.0.0:2375`. Like this:
 
 ```sh
 # /lib/systemd/system/docker.service
