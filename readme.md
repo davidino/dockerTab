@@ -1,6 +1,12 @@
 ### DockerTab
 
-With DockerTab you will be able to visualize informations about your docker containers through a UI interface 
+With DockerTab you will be able to visualize informations about your docker containers through a UI interface.
+
+Following actions:
+* listing all runnging containers
+* inspect containers
+* stop containers
+* remove single/all exited containers
 
 ![Screenshot.png](Screenshot.png)
 
