@@ -11,13 +11,13 @@
       <a class="navigate-right" href="/detail/{{Id}}">
         <img class="media-object pull-left" src="https://docs.docker.com/v1.5/img/nav/docker-logo-loggedin.png">
         <div class="media-body">
-          <h4>{{ Names[0] }}</h4>
+          <h5>{{ Names[0] }}</h5>
           <p>{{ Status }}</p>
-          <p><span class="badge badge-primary">{{ Image }}</span></p>
           <p>
-          {{#Ports}}
+            <span class="badge badge-primary">{{ Image }}</span>
+            {{#Ports}}
             <span class="badge badge-positive">{{IP}}:{{PublicPort}} -> {{PrivatePort}}</span> &nbsp;
-          {{/Ports}}
+            {{/Ports}}
           </p>
         </div>
       </a>
