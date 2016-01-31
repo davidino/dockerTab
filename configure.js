@@ -74,7 +74,12 @@ var routes = {
     ctx.template = templates.configure;
     state.configure = render(ctx, {loading: true});
     getAndRemoveOne(ctx.params.name, next);
-  }
+  },
+  killZombie: function killZombie(ctx, next) {
+    ctx.template = templates.configure;
+    state.configure = render(ctx, {loading: true});
+    getAndRemoveZombie(next);
+  },
 }
 
 // set up routes
@@ -82,6 +87,7 @@ page('/', routes.configure)
 page('/detail/:name', routes.detail)
 page('/stopOne/:name', routes.stopOne)
 page('/removeOne/:name', routes.removeOne)
+page('/killzombie/', routes.killZombie)
 page('/about', routes.about)
 
 // initialize router
@@ -158,6 +164,14 @@ function getAndRender (name, callback) {
     if (err) return callback(err)
     state.detail.set(data)
     callback()
+  })
+}
+
+function getAndRemoveZombie(callback) {
+  callback = catchErrors(callback || function () {})
+  client.request('remove-all-zombie', {}, function (err, data) {
+    if (err) return callback(err)
+    callback();
   })
 }
 

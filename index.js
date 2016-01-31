@@ -102,6 +102,23 @@ menu.on('ready', function ready () {
     });
   })
 
+  app.on('remove-all-zombie', function(req, next) {
+    var options = {
+      all: true,
+      status: ["exited"]
+    };
+
+    docker.listContainers(options, function(err, containers){
+      containers.forEach(function (containerInfo) {
+        docker.getContainer(containerInfo.Id).remove(function(err, data){
+          if(err) mylog('error while remove zombies');
+          mylog('remove zombies', data);
+          next();
+        });
+      });
+    });
+
+  })
 })
 
 function loadConfig () {
