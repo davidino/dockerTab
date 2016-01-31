@@ -1,0 +1,35 @@
+<header class="bar bar-nav">
+  <a href="/">
+    <button class="btn btn-link btn-nav pull-left">
+      <span class="icon icon-left-nav"></span>
+      Back
+    </button>
+  </a>
+  <h1 class="title">{{Name}}</h1>
+  <button class="btn pull-right" on-click="openLogsDir">
+    View Logs
+  </button>
+</header>
+<div class="content">
+  <ul class="table-view">
+    <li class="table-view-cell"><b>Status</b> {{State.Status}}</li>
+    <li class="table-view-cell"><b>Ip</b> {{NetworkSettings.IPAddress}}</li>
+    <li class="table-view-cell table-view-divider">Actions</li>
+    <li class="table-view-cell media">
+      <a class="cursor-pointer" href="/stopOne/{{Id}}">
+        <span class="media-object pull-left icon icon-stop"></span>
+        <div class="media-body">
+          Stop
+        </div>
+      </a>
+    </li>
+    <li class="table-view-cell media">
+      <a class="cursor-pointer" href="/removeOne/{{Id}}">
+        <span class="media-object pull-left icon icon-trash"></span>
+        <div class="media-body">
+          Remove
+        </div>
+      </a>
+    </li>
+  </ul>
+</div>

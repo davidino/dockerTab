@@ -1,0 +1,73 @@
+<div class="content configure-content">
+  <ul class="table-view">
+    <li class="table-view-cell table-view-divider">Containers</li>
+    {{#items}}
+<!--       <li class="table-view-cell media">
+        <a href="/detail/{{Id}}" class="navigate-right">
+          <span class="media-object pull-left icon icon-page"></span> {{ Names[0] }}
+        </a>
+      </li> -->
+
+      <a class="navigate-right" href="/detail/{{Id}}">
+        <img class="media-object pull-left" src="https://docs.docker.com/v1.5/img/nav/docker-logo-loggedin.png">
+        <div class="media-body">
+          <h4>{{ Names[0] }}</h4>
+          <p>{{ Status }}</p>
+          <p><span class="badge badge-primary">{{ Image }}</span></p>
+          <p>
+          {{#Ports}}
+            <span class="badge badge-positive">{{IP}}:{{PublicPort}} -> {{PrivatePort}}</span> &nbsp;
+          {{/Ports}}
+          </p>
+        </div>
+      </a>
+
+    {{/items}}
+    {{^items}}
+      <li class="table-view-cell media">No Containers</li>
+    {{/items}}
+    <li class="table-view-cell table-view-divider">Actions</li>
+    {{#hasProcesses}}
+    <li class="table-view-cell media">
+      <a class="cursor-pointer" on-click="processAction" data-action="startAll">
+        <span class="media-object pull-left icon icon-play"></span>
+        <div class="media-body">
+          Start All
+        </div>
+      </a>
+    </li>
+    <li class="table-view-cell media">
+      <a class="cursor-pointer" on-click="processAction" data-action="stopAll">
+        <span class="media-object pull-left icon icon-stop"></span>
+        <div class="media-body">
+          Stop All
+        </div>
+      </a>
+    </li>
+    <li class="table-view-cell media">
+      <a class="cursor-pointer" on-click="processAction" data-action="restartAll">
+        <span class="media-object pull-left icon icon-refresh"></span>
+        <div class="media-body">
+          Restart All
+        </div>
+      </a>
+    </li>
+    {{/hasProcesses}}
+    <li class="table-view-cell media">
+      <a class="navigate-right" href="/about">
+        <span class="media-object pull-left icon icon-search"></span>
+        <div class="media-body">
+          About
+        </div>
+      </a>
+    </li>
+  </ul>
+</div>
+<div class="bar bar-standard bar-footer">
+  <button class="btn pull-left" on-click="openDir">
+    Open Config Folder
+  </button>
+  <button class="btn pull-right" on-click="quit">
+    Quit
+  </button>
+</div>
