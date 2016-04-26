@@ -1,9 +1,4 @@
 {
-  "logs": "./logs",
-  "pids": "./pids",
-  "processes": {
-    "web-1": "http-server . -p 8081",
-    "web-2": "http-server . -p 8082",
-    "web-3": "http-server . -p 8083"
-  }
+  "host" : "172.16.210.135",
+  "port" : "2375"
 }

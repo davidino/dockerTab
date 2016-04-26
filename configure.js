@@ -13,9 +13,9 @@ window.onerror = function errorHandler (message, url, lineNumber) {
 }
 
 var templates = {
-  configure: fs.readFileSync(__dirname + '/configure.tmpl').toString(),
-  detail: fs.readFileSync(__dirname + '/detail.tmpl').toString(),
-  about: fs.readFileSync(__dirname + '/about.html').toString()
+  configure: fs.readFileSync(__dirname + '/views/configure.tmpl').toString(),
+  detail: fs.readFileSync(__dirname + '/views/detail.tmpl').toString(),
+  about: fs.readFileSync(__dirname + '/views/about.html').toString()
 }
 
 var state = {}
